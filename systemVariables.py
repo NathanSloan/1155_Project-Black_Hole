@@ -1,3 +1,6 @@
+# System Objects
+
+# imports
 import random as rn
 
 # ensure generated IP does not match any other IPs in network
@@ -77,7 +80,7 @@ class Node:
                 print(f"Cost of Path: {self.lookupTable[packet.sourceIP][2]}")
                 self.packets.remove(packet)
                 return packet.information
-            # check if packet can be routed to destination
+            # check if packet cannot be routed to destination
             elif packet.destinationIP not in self.lookupTable:
                 print("No route, dropping")
                 return None

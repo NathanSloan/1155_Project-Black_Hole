@@ -1,5 +1,9 @@
+# Black Hole Routing Objects
+
+# imports
 from systemVariables import Router
 
+# Black Hole Router Object
 class BlackHoleRouter(Router):
     def sendUpdate(self):
         fakeTable = {}
@@ -12,6 +16,7 @@ class BlackHoleRouter(Router):
             otherNode = link.getOtherNode(self)
             otherNode.receiveUpdate(self, fakeTable)
 
+    # define when packet is consumed by router, print to terminal
     def forward(self):
         for packet in self.packets:
             print(f"Packet has been claimed by Black Hole Router with message: {packet.information}")
@@ -19,7 +24,8 @@ class BlackHoleRouter(Router):
             print(f"Cost of Path: {self.lookupTable[packet.sourceIP][2]}")
             self.packets.remove(packet)
             return None
-        
+
+# Advanced Black Hole Router Object
 class AdvancedBlackHoleRouter(Router):
     def __init__(self, name, cost):
         self.cost = cost
@@ -35,6 +41,7 @@ class AdvancedBlackHoleRouter(Router):
             otherNode = link.getOtherNode(self)
             otherNode.receiveUpdate(self, fakeTable)
 
+    # define when packet is consumed by router, print to terminal
     def forward(self):
         for packet in self.packets:
             print(f"Packet has been claimed by Black Hole Router with message: {packet.information}")

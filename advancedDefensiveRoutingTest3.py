@@ -1,3 +1,13 @@
+# This is a test of the defense against the Advanced Black Hole Attack with 
+#  Advanced Routers using network configuration 3
+# The Advanced Routers can be passed a tolerance variable, where it will consider
+#  all link costs lower than that tolerance value to be suspicious
+# The Advanced Routers can now detect the low link costs of the Advanced Black Hole Router
+# All packets will arrive at their intended destinations, however all real links with a 
+#  link cost value of 1 will be unable to be utilized by the network due to the 
+#  Advanced Router tolerance level and may cause the packets to take inefficient paths
+
+# imports
 from systemVariables import Router, EndDevice, Link
 from BlackHoleRouter import AdvancedBlackHoleRouter
 from defensiveRouter import AdvancedRouter
@@ -18,6 +28,8 @@ def movePackets(routers):
         node.packets = newPackets
 
 # Starting network
+# Define routers (basic and advanced)
+#  All Advanced routers will get a tolerance level of 1 
 devices = []
 router1 = AdvancedRouter("1", 1)
 devices.append(router1)
@@ -38,16 +50,19 @@ devices.append(router8)
 router9 = AdvancedRouter("9")
 devices.append(router9)
 
+# define computers
 homeComputerA = EndDevice("Home Computer A")
 devices.append(homeComputerA)
 homeComputerB = EndDevice("Home Computer B")
 devices.append(homeComputerB)
 
+# define servers
 server1 = EndDevice("Server 1")
 devices.append(server1)
 server2 = EndDevice("Server 2")
 devices.append(server2)
 
+# define links between devices with link costs
 Link(router1, router2, 4)
 Link(router2, router3, 3)
 Link(router3, router4, 6)
@@ -67,6 +82,7 @@ Link(homeComputerB, router7, 1)
 Link(server1, router3, 2)
 Link(server2, router1, 2)
 
+# Define advanced black hole router with fake link cost of 1
 blackHole = AdvancedBlackHoleRouter("Black Hole", 1)
 devices.append(blackHole)
 Link(blackHole, router2, 1)

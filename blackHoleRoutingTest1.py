@@ -1,3 +1,9 @@
+# This is a test of the Black Hole Routing Attack using network configuration 1
+# The black hole router poisons the lookup tables of the surrounding devices during the sendUpdate()
+#  configuration phase, convincing all routers that it is the best path to the given IP address
+# The packet is claimed by the Black Hole Router
+
+# imports
 from systemVariables import Router, EndDevice, Link
 from BlackHoleRouter import BlackHoleRouter
 
@@ -17,6 +23,7 @@ def movePackets(routers):
         node.packets = newPackets
 
 # Starting network
+# Define routers
 devices = []
 routerA = Router("A")
 devices.append(routerA)
@@ -26,10 +33,14 @@ routerC = Router("C")
 devices.append(routerC)
 routerD = Router("D")
 devices.append(routerD)
+
+# define computers and servers
 homeComputer = EndDevice("Home Computer")
 devices.append(homeComputer)
 server = EndDevice("Server")
 devices.append(server)
+
+# define links between devices
 linkHtoA = Link(homeComputer, routerA)
 linkAtoB = Link(routerA, routerB)
 linkBtoD = Link(routerB, routerD)
@@ -37,8 +48,8 @@ linkAtoC = Link(routerA, routerC)
 linkCtoD = Link(routerC, routerD)
 linkDtoS = Link(routerD, server)
 
-# Evil Router
-blackHole = BlackHoleRouter("Server (Good)")
+# define black hole router
+blackHole = BlackHoleRouter("Black Hole")
 devices.append(blackHole)
 linkCtoBH = Link(blackHole, routerC)
 

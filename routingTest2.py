@@ -1,3 +1,10 @@
+# This is a test of network configuration 2
+# Each packet will take the shortest path to its destination based on the lookup table data 
+#  held in each device
+# Each packet will print where it ended, the message in the packet, the path that it took, 
+#  and the cost of the path
+
+# imports
 from systemVariables import Router, EndDevice, Link
 
 # move packets in system
@@ -16,6 +23,7 @@ def movePackets(routers):
         node.packets = newPackets
 
 # Starting network
+# Define routers
 devices = []
 router1 = Router("1")
 devices.append(router1)
@@ -40,6 +48,7 @@ devices.append(router10)
 router11 = Router("11")
 devices.append(router11)
 
+# define computers
 homeComputerA = EndDevice("Home Computer A")
 devices.append(homeComputerA)
 homeComputerB = EndDevice("Home Computer B")
@@ -47,6 +56,7 @@ devices.append(homeComputerB)
 homeComputerC = EndDevice("Home Computer C")
 devices.append(homeComputerC)
 
+# define servers
 server1 = EndDevice("Server 1")
 devices.append(server1)
 server2 = EndDevice("Server 2")
@@ -56,6 +66,7 @@ devices.append(server3)
 server4 = EndDevice("Server 4")
 devices.append(server4)
 
+# define links between devices
 Link(router1, router2)
 Link(router2, router3)
 Link(router3, router7)
@@ -81,13 +92,14 @@ Link(server4, router10)
 for node in devices:
     node.sendUpdate()
 
-# create packet at end device
+# create packets at end device
 homeComputerA.createPacket(server1.getIP(), "Twitter Post")
 homeComputerA.createPacket(server4.getIP(), "Request to install minecraft.exe")
 homeComputerB.createPacket(server2.getIP(), "Request to install teamFortress2.exe")
 homeComputerC.createPacket(server4.getIP(), "Request to install balatro.exe")
 
 # propagate data through network
+# depending on info received at servers, will create packets to send back through network
 for i in range(100):
     for node in devices:
         info = node.forward()

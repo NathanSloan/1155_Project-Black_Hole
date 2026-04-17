@@ -1,3 +1,9 @@
+# This is a test of the defense against the Black Hole Attack with Advanced Routers using network configuration 1
+# The Advanced Routers will detect suspiciously low link costs and will discard that information instead
+#  of adding it to other nodes' lookup tables
+# The packet arrives at its intended destination with the Advanced Router
+
+# imports
 from systemVariables import Router, EndDevice, Link
 from BlackHoleRouter import BlackHoleRouter
 from defensiveRouter import AdvancedRouter
@@ -18,6 +24,7 @@ def movePackets(routers):
         node.packets = newPackets
 
 # Starting network
+# Define routers
 devices = []
 routerA = Router("A")
 devices.append(routerA)
@@ -27,10 +34,14 @@ routerC = AdvancedRouter("C")
 devices.append(routerC)
 routerD = Router("D")
 devices.append(routerD)
+
+# define computers and servers
 homeComputer = EndDevice("Home Computer")
 devices.append(homeComputer)
 server = EndDevice("Server")
 devices.append(server)
+
+# define links between devices
 linkHtoA = Link(homeComputer, routerA)
 linkAtoB = Link(routerA, routerB)
 linkBtoD = Link(routerB, routerD)
@@ -38,8 +49,8 @@ linkAtoC = Link(routerA, routerC)
 linkCtoD = Link(routerC, routerD)
 linkDtoS = Link(routerD, server)
 
-# Evil Router
-blackHole = BlackHoleRouter("Server (Good)")
+# define black hole router
+blackHole = BlackHoleRouter("Black Hole")
 devices.append(blackHole)
 linkCtoBH = Link(blackHole, routerC)
 

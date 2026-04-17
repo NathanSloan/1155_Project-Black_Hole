@@ -1,7 +1,12 @@
+# Defensive Router Object
+
+# imports
 from systemVariables import Router
 
+# Advanced Router Object
 class AdvancedRouter(Router):
     def __init__(self, name, tolerance=0):
+        # define suspicion tolerance of link cost (default is 0)
         self.tolerance = tolerance
         super().__init__(name)
     def __repr__(self):
@@ -19,7 +24,7 @@ class AdvancedRouter(Router):
                 continue
 
             # DEFENSE AGAINST BLACK HOLE
-            # reject links with suspiciously low routes
+            # reject links with suspiciously low routes based on tolerance
             if otherCost <= self.tolerance and dest != otherNode.getIP():
                 continue
 
