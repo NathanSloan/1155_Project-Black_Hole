@@ -76,14 +76,17 @@ class Node:
                 print(f"Path took: {packet.path}")
                 print(f"Cost of Path: {self.lookupTable[packet.sourceIP][2]}")
                 self.packets.remove(packet)
+                return packet.information
             # check if packet can be routed to destination
             elif packet.destinationIP not in self.lookupTable:
                 print("No route, dropping")
+                return None
             # determine next node for packet to visit based on lookup table
             else:
                 next_hop = self.lookupTable[packet.destinationIP][1]
                 packet.path.append(next_hop)
                 packet.nextLocation = next_hop
+                return None
 
     def getIP(self):
         return self.ip
