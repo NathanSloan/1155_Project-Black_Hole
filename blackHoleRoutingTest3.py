@@ -5,7 +5,7 @@
 #  black hole router is connected to
 
 # imports
-from systemVariables import Router, EndDevice, Link
+from SystemVariables import Router, EndDevice, Link
 from BlackHoleRouter import BlackHoleRouter
 
 # move packets in system

@@ -1,7 +1,7 @@
 # Black Hole Routing Objects
 
 # imports
-from systemVariables import Router
+from SystemVariables import Router
 
 # Black Hole Router Object
 class BlackHoleRouter(Router):

@@ -7,9 +7,9 @@
 #  black hole router is connected to
 
 # imports
-from systemVariables import Router, EndDevice, Link
+from SystemVariables import Router, EndDevice, Link
 from BlackHoleRouter import AdvancedBlackHoleRouter
-from defensiveRouter import AdvancedRouter
+from DefensiveRouter import AdvancedRouter
 
 # move packets in system
 def movePackets(routers):

@@ -5,7 +5,7 @@
 #  and the cost of the path
 
 # imports
-from systemVariables import Router, EndDevice, Link
+from SystemVariables import Router, EndDevice, Link
 
 # move packets in system
 def movePackets(routers):

@@ -4,9 +4,9 @@
 # All packets arrive at their intended destinations with the Advanced Routers
 
 # imports
-from systemVariables import Router, EndDevice, Link
+from SystemVariables import Router, EndDevice, Link
 from BlackHoleRouter import BlackHoleRouter
-from defensiveRouter import AdvancedRouter
+from DefensiveRouter import AdvancedRouter
 
 # move packets in system
 def movePackets(routers):
