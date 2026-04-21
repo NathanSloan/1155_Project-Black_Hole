@@ -1,4 +1,4 @@
-# Random defensive test: advanced black hole vs advanced defense.
+# This is random traffic test of black hole advanced vs advanced defense.
 import random
 
 from BlackHoleRouter import AdvancedBlackHoleRouter
@@ -42,17 +42,17 @@ for trial in range(TRIALS):
     devices.append(router4)
     router5 = AdvancedRouter("5", 1)
     devices.append(router5)
-    router6 = Router("6")
+    router6 = AdvancedRouter("6", 1)
     devices.append(router6)
-    router7 = Router("7")
+    router7 = AdvancedRouter("7", 1)
     devices.append(router7)
-    router8 = Router("8")
+    router8 = AdvancedRouter("8", 1)
     devices.append(router8)
-    router9 = AdvancedRouter("9")
+    router9 = AdvancedRouter("9", 1)
     devices.append(router9)
-    router10 = Router("10")
+    router10 = AdvancedRouter("10", 1)
     devices.append(router10)
-    router11 = Router("11")
+    router11 = AdvancedRouter("11", 1)
     devices.append(router11)
 
     homeComputerA = EndDevice("Home Computer A")
@@ -129,7 +129,7 @@ captureSentRate = 0.0 if sentCount == 0 else (100.0 * capturedCount / sentCount)
 deliverySentRate = 0.0 if sentCount == 0 else (100.0 * deliveredCount / sentCount)
 droppedSentRate = 0.0 if sentCount == 0 else (100.0 * droppedCount / sentCount)
 
-print("Random Defensive Test: advanced defense + advanced black hole")
+print("Random Defensive Test: advanced defense vs advanced black hole")
 print(f"Trials: {TRIALS}")
 print(f"Packets per Trial: {PACKETS_PER_TRIAL}")
 print(f"Total Sent: {sentCount}")

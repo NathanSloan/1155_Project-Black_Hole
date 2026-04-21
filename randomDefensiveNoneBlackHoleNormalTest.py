@@ -1,7 +1,7 @@
-# This is random traffic test of black hole normal advanced.
+# This is random traffic test of black hole normal vs no defense.
 import random
 
-from BlackHoleRouter import AdvancedBlackHoleRouter
+from BlackHoleRouter import BlackHoleRouter
 from systemVariables import Router, EndDevice, Link
 
 TRIALS = 100
@@ -93,8 +93,8 @@ for trial in range(TRIALS):
     Link(server3, router5)
     Link(server4, router10)
 
-    # define advanced black hole router
-    blackHole = AdvancedBlackHoleRouter("Black Hole", 1)
+    # define black hole router
+    blackHole = BlackHoleRouter("Black Hole")
     devices.append(blackHole)
 
     # Randomize black hole attachment over hotspots.
@@ -130,7 +130,7 @@ totalCount = capturedCount + deliveredCount
 captureRate = 0.0 if totalCount == 0 else (100.0 * capturedCount / totalCount)
 deliveryRate = 0.0 if totalCount == 0 else (100.0 * deliveredCount / totalCount)
 
-print(f"Random Advanced Black Hole Cost Test")
+print("Random Test: no defense vs black hole")
 print(f"Trials: {TRIALS}")
 print(f"Packets per Trial: {PACKETS_PER_TRIAL}")
 print(f"Total Packets: {totalCount}")
