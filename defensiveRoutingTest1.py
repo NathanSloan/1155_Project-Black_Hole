@@ -4,7 +4,7 @@
 # The packet arrives at its intended destination with the Advanced Router
 
 # imports
-from SystemVariables import Router, EndDevice, Link
+from systemVariables import Router, EndDevice, Link
 from BlackHoleRouter import BlackHoleRouter
 from DefensiveRouter import AdvancedRouter
 

@@ -4,7 +4,7 @@
 # The packet is claimed by the Black Hole Router
 
 # imports
-from SystemVariables import Router, EndDevice, Link
+from systemVariables import Router, EndDevice, Link
 from BlackHoleRouter import BlackHoleRouter
 
 # move packets in system

@@ -8,7 +8,7 @@
 #  Advanced Router tolerance level and may cause the packets to take inefficient paths
 
 # imports
-from SystemVariables import Router, EndDevice, Link
+from systemVariables import Router, EndDevice, Link
 from BlackHoleRouter import AdvancedBlackHoleRouter
 from DefensiveRouter import AdvancedRouter
 

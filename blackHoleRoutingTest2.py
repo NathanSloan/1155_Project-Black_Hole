@@ -6,7 +6,7 @@
 #  closer than the intended recipients
 
 # imports
-from SystemVariables import Router, EndDevice, Link
+from systemVariables import Router, EndDevice, Link
 from BlackHoleRouter import BlackHoleRouter
 
 # move packets in system

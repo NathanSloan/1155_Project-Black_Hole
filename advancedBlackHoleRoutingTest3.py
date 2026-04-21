@@ -7,7 +7,7 @@
 #  black hole router is connected to
 
 # imports
-from SystemVariables import Router, EndDevice, Link
+from systemVariables import Router, EndDevice, Link
 from BlackHoleRouter import AdvancedBlackHoleRouter
 from DefensiveRouter import AdvancedRouter
 

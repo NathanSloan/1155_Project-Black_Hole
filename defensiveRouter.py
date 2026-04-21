@@ -1,7 +1,7 @@
 # Defensive Router Object
 
 # imports
-from SystemVariables import Router
+from systemVariables import Router
 
 # Advanced Router Object
 class AdvancedRouter(Router):
