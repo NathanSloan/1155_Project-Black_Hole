@@ -6,7 +6,7 @@
 # imports
 from systemVariables import Router, EndDevice, Link
 from BlackHoleRouter import BlackHoleRouter
-from DefensiveRouter import AdvancedRouter
+from defensiveRouter import AdvancedRouter
 
 # move packets in system
 def movePackets(routers):
